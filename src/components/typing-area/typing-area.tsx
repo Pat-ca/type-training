@@ -2,6 +2,10 @@ import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { DisplayWord } from '../../models/display-word';
 import * as lessonService from '../../services/lesson.service';
+import {
+  clearDisplayArea,
+  selectClearDisplayArea,
+} from '../../store/typing-slice';
 import DisplayArea from '../display-area/display-area';
 import InputArea from '../input-area/input-area';
 import './typing_area.css';
@@ -9,7 +13,7 @@ import './typing_area.css';
 function TypingArea() {
   const [displayWords, setDisplayWords] = useState([] as DisplayWord[]);
   const dispatch = useDispatch();
-  const clearDisplayArea = useSelector((state) => state.clearDisplayArea);
+  const isClearDisplayArea = useSelector(selectClearDisplayArea);
 
   useEffect(() => {
     const generateDisplayWords = lessonService.getDisplayWords(1, 3);
@@ -17,12 +21,12 @@ function TypingArea() {
   }, []);
 
   useEffect(() => {
-    if (clearDisplayArea) {
+    if (isClearDisplayArea) {
       const generateDisplayWords = lessonService.getDisplayWords(1, 3);
       setDisplayWords(generateDisplayWords);
-      dispatch({ type: 'Clear_Display_Area', payload: false });
+      dispatch(clearDisplayArea(false));
     }
-  }, [clearDisplayArea, dispatch]);
+  }, [isClearDisplayArea, dispatch]);
 
   const updateDisplayWords = (updatedWords: DisplayWord[]) => {
     setDisplayWords(updatedWords);
