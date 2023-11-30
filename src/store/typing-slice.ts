@@ -17,7 +17,7 @@ export const typingSlice = createSlice({
     typingLetter: (state, action) => {
       return { ...state, currentTypingPosition: action.payload };
     },
-    clearDisplayArea: (state, action) => {
+    setClearDisplayArea: (state, action) => {
       return {
         ...state,
         clearDisplayArea: action.payload,
@@ -26,7 +26,7 @@ export const typingSlice = createSlice({
   },
 });
 
-export const { typingLetter, clearDisplayArea } = typingSlice.actions;
+export const { typingLetter, setClearDisplayArea } = typingSlice.actions;
 export const selectClearDisplayArea = (state: TypingStoreState) =>
   state.clearDisplayArea;
 export default typingSlice.reducer;

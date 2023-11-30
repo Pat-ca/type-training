@@ -3,7 +3,7 @@ import { TypingLetterStates } from '../../enums/typing-letter-state';
 import { TypingWordStates } from '../../enums/typing-word-state';
 import { DisplayLetter } from '../../models/display-letter';
 import { DisplayWord } from '../../models/display-word';
-import './word.css';
+import './word.scss';
 
 interface WordProps {
   word: DisplayWord;

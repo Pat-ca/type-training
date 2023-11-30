@@ -3,12 +3,12 @@ import { useDispatch, useSelector } from 'react-redux';
 import { DisplayWord } from '../../models/display-word';
 import * as lessonService from '../../services/lesson.service';
 import {
-  clearDisplayArea,
   selectClearDisplayArea,
+  setClearDisplayArea,
 } from '../../store/typing-slice';
 import DisplayArea from '../display-area/display-area';
 import InputArea from '../input-area/input-area';
-import './typing_area.css';
+import './typing-area.scss';
 
 function TypingArea() {
   const [displayWords, setDisplayWords] = useState([] as DisplayWord[]);
@@ -24,7 +24,7 @@ function TypingArea() {
     if (isClearDisplayArea) {
       const generateDisplayWords = lessonService.getDisplayWords(1, 3);
       setDisplayWords(generateDisplayWords);
-      dispatch(clearDisplayArea(false));
+      dispatch(setClearDisplayArea(false));
     }
   }, [isClearDisplayArea, dispatch]);
 

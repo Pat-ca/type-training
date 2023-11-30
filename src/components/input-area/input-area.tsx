@@ -5,8 +5,8 @@ import { TypingWordStates } from '../../enums/typing-word-state';
 import { DisplayWord } from '../../models/display-word';
 import { TypingState } from '../../models/typing-state';
 import * as lessonService from '../../services/lesson.service';
-import { clearDisplayArea } from '../../store/typing-slice';
-import './input-area.css';
+import { setClearDisplayArea } from '../../store/typing-slice';
+import './input-area.scss';
 
 interface InputAreaProps {
   displayWords: DisplayWord[];
@@ -23,7 +23,7 @@ const InputArea = ({ displayWords, updateDisplayWords }: InputAreaProps) => {
     let caretPos = textarea.selectionStart;
     const isLineEnd = lessonService.isEndOfLine(displayWords, caretPos);
     if (isLineEnd) {
-      dispatch(clearDisplayArea(true));
+      dispatch(setClearDisplayArea(true));
       setIsEnd(isLineEnd);
       return;
     }

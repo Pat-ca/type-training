@@ -1,5 +1,5 @@
 import { DisplayWord } from '../../models/display-word';
-import './display-area.css';
+import './display-area.scss';
 import Word from './word';
 
 interface DisplayAreaProps {

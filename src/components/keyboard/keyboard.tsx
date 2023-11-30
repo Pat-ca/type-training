@@ -1,15 +1,19 @@
-import KEYS from "../../assets/config/keys_en";
-import { TypingKey } from "../../models/typing-key";
-import KeyEntity from "./key-entity";
+import KEYS from '../../assets/config/keys_en';
+import { TypingKey } from '../../models/typing-key';
+import KeyEntity from './key-entity';
 
 interface KeyRowProps {
   keys: TypingKey[];
 }
 
-const KeyRow: React.FC<KeyRowProps> = ({ keys }) => {
-  return keys.map((key, i) => {
-    return <KeyEntity key={`ke_${i}`} typingKey={key} />;
-  });
+const KeyRow = ({ keys }: KeyRowProps) => {
+  return (
+    <>
+      {keys.map((key, i) => {
+        return <KeyEntity key={`ke_${i}`} typingKey={key} />;
+      })}
+    </>
+  );
 };
 
 function Keyboard() {
