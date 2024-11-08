@@ -51,8 +51,8 @@ function KeyProvider({ children }: Props) {
       <KeyContext.Provider value={{ lastKeyDownUp }}>
         {children}
       </KeyContext.Provider>
-      <audio ref={keydownSoundRef} src={keydownSound} hidden />
-      <audio ref={keyupSoundRef} src={keyupSound} hidden />
+      <audio preload="auto" ref={keydownSoundRef} src={keydownSound} hidden />
+      <audio preload="auto" ref={keyupSoundRef} src={keyupSound} hidden />
     </>
   );
 }

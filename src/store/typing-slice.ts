@@ -1,4 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { RootState } from './store';
 
 interface TypingStoreState {
   currentTypingPosition: { currentWordId: number; inputPositionOfWord: number };
@@ -27,6 +28,6 @@ export const typingSlice = createSlice({
 });
 
 export const { typingLetter, setClearDisplayArea } = typingSlice.actions;
-export const selectClearDisplayArea = (state: TypingStoreState) =>
-  state.clearDisplayArea;
+export const selectClearDisplayArea = (state: RootState) =>
+  state.typings.clearDisplayArea;
 export default typingSlice.reducer;

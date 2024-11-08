@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useAppDispatch, useAppSelector } from '../../store/hooks';
 import { DisplayWord } from '../../models/display-word';
 import * as lessonService from '../../services/lesson.service';
 import {
@@ -12,8 +12,8 @@ import './typing-area.scss';
 
 function TypingArea() {
   const [displayWords, setDisplayWords] = useState([] as DisplayWord[]);
-  const dispatch = useDispatch();
-  const isClearDisplayArea = useSelector(selectClearDisplayArea);
+  const dispatch = useAppDispatch();
+  const isClearDisplayArea = useAppSelector(selectClearDisplayArea);
 
   useEffect(() => {
     const generateDisplayWords = lessonService.getDisplayWords(1, 3);
